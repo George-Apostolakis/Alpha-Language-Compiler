@@ -116,7 +116,7 @@ void LinkedList_Print(const List *list, FILE *out)
 {
     if (!list) {
         fprintf(stderr, "LinkedList_Print: ERROR list pointer is NULL\n");
-        return LINKEDLIST_NULL;
+        return;
     }
 
     fprintf(out, "%-8s %-10s %-35s %-20s %-25s %-15s\n",

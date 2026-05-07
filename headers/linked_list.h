@@ -19,8 +19,8 @@
 /* -------------------------------------------------------------------------- */
 
 #define LINKEDLIST_NULL -9999                   /**< Null pointer passed as list. */
-#define LINKEDLIST_ALLOCATION_FAILED -9995      /**< Malloc failed */
-#define LINKEDLIST_UNIDENTIFIED_TOKENS -9994    /**< UNIDENTIFIED Token in list */
+#define LINKEDLIST_ALLOCATION_FAILED -9998      /**< Malloc failed */
+#define LINKEDLIST_UNIDENTIFIED_TOKENS -9997    /**< UNIDENTIFIED Token in list */
 // #define DEBUG
 
 /**

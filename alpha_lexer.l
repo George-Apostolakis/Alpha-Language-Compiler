@@ -37,13 +37,12 @@
     static int emit(void *yylval, int lineNumber , char* lexeme ,
                     TokenCategory mainCat, TokenSubCategory secondaryCat,int ret){
         Token* argToken = (Token*)yylval;
-
-        tokenNumber++;
- 
         if(!argToken){       
             printf("[DEBUG] FINISHED Investigating %d Token\n",tokenNumber);
             return ret;
         }
+        
+        tokenNumber++;
 
         argToken->lineNumber = lineNumber;
         argToken->tokenNumber = tokenNumber;
