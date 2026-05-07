@@ -77,8 +77,10 @@ int LinkedList_AddToEnd(List **list, Token value)
 
 int LinkedList_GetLength(const List *list)
 {
-    if (!list)
+    if (!list) {
+        fprintf(stderr, "LinkedList_GetLength: ERROR list pointer is NULL\n");
         return LINKEDLIST_NULL;
+    }
 
     return list->size;
 }
@@ -112,6 +114,11 @@ void LinkedList_Free(List **list)
 
 void LinkedList_Print(const List *list, FILE *out)
 {
+    if (!list) {
+        fprintf(stderr, "LinkedList_Print: ERROR list pointer is NULL\n");
+        return LINKEDLIST_NULL;
+    }
+
     fprintf(out, "%-8s %-10s %-35s %-20s %-25s %-15s\n",
             "Line", "Token#", "TokenContent", "Category", "Value", "TypeHint");
     fprintf(out, "%s\n",
@@ -160,7 +167,7 @@ void LinkedList_Print(const List *list, FILE *out)
 
 int LinkedList_CheckErrors(const List *list){
     if (!list) {
-        fprintf(output_file, "NULL token list\n");
+        fprintf(stderr, "LinkedList_CheckErrors: ERROR list pointer is NULL\n");
         return LINKEDLIST_NULL;
     }
 

@@ -68,6 +68,6 @@ void LinkedList_Print(const List *list, FILE* out);
 /**
  * @brief Checks for any UNIDENTFIED tokens and prints appropriate messages.
  * @param[in] list The list.
- * @return 1 if no UNIDENTIFIED tokens are found , LINKEDLIST_UNIDENTIFIED_TOKENS if UNIDENTIFIED tokens are found
+ * @return 1 if no UNIDENTIFIED tokens are found , LINKEDLIST_UNIDENTIFIED_TOKENS, LINKEDLIST_NULL in case of error.
  */
 int LinkedList_CheckErrors(const List *list);
