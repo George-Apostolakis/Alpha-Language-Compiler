@@ -2,7 +2,7 @@
 CC = gcc
 
 # Compiler flags
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -fsanitize=address -static-libasan -g
 
 # Target executable
 TARGET = main

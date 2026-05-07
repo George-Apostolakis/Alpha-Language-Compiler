@@ -9,6 +9,9 @@ struct List
     Token *tail;
 };
 
+int  syntax_errors = 0;
+extern FILE* output_file;
+
 int LinkedList_CreateEmpty(List **list)
 {
     if (!list)
@@ -90,12 +93,7 @@ void LinkedList_Free(List **list)
 
     if (!(*list))
         return;
-    // CASE2: Empty list
-    if ((*list)->size == 0)
-    {
-        fprintf(stderr, "LinkedList_Free: ERROR list EMPTY\n");
-        return;
-    }
+        
     // CASE3: NORMAL CASE
     tmp = (*list)->head;
     while (tmp != NULL)
@@ -158,4 +156,31 @@ void LinkedList_Print(const List *list, FILE *out)
                     typeHint(cur->mainCat));
         }
     }
+}
+
+int LinkedList_CheckErrors(const List *list){
+    if (!list) {
+        fprintf(output_file, "NULL token list\n");
+        return LINKEDLIST_NULL;
+    }
+
+    bool found = false;
+    for (Token *cur = list->head; cur; cur = cur->next) {
+        if (cur->mainCat == UNIDENTIFIED) {
+            fprintf(output_file,
+                    "[LEXICAL ERROR] Undefined token '%s' at line %d\n",
+                    cur->lexeme, cur->lineNumber);
+            syntax_errors++;
+            found = true;
+        }
+    }
+
+    if (found) {
+        fprintf(output_file,
+                "[LEXICAL ERROR] Lexical analysis found %d error(s). "
+                "Compiling aborted.\n", syntax_errors);
+        return LINKEDLIST_UNIDENTIFIED_TOKENS;
+    }
+
+    return 1;
 }

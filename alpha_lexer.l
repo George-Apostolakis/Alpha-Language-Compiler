@@ -47,7 +47,7 @@
 
         argToken->lineNumber = lineNumber;
         argToken->tokenNumber = tokenNumber;
-        argToken->lexeme = strdup(lexeme);
+        argToken->lexeme = strdup(lexeme?lexeme:"");
         argToken->mainCat = mainCat;
         argToken->secondaryCat = secondaryCat;
 
@@ -195,8 +195,10 @@ REAL    [0-9]+\.[0-9]+
             }
 
     "*/"    {
-                if((--block_comment_depth) == 0)
+                if((--block_comment_depth) == 0){
+                    BEGIN(INITIAL);
                     return emit(yylval, block_comment_starting_line, "", COMMENT, (block_comment_is_nested)?NESTED_COMMENT:BLOCK_COMMENT, COMMENT);
+                }
             }
 
     .|\n    { /* Consume */ }

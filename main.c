@@ -41,9 +41,10 @@ static int open_files(int argc, char *args[])
     }
 
     output_file = fopen(args[2], "w");
-    if (!input_file)
+    if (!output_file)
     {
         fprintf(stderr, "[ERROR]: Error opening output file named: %s\n", args[2]);
+        fclose(input_file);
         return -1;
     }
     return 1;
@@ -71,14 +72,22 @@ int main(int argc, char *args[])
     if (LinkedList_CreateEmpty(&token_list) <= 0)
         return -1;
 
-    Token return_token;
-    while (alpha_yylex((void *)&return_token) >= 0)
-        if(LinkedList_AddToEnd(&token_list, return_token) <= 0)
+    while (1)
+    {
+        Token return_token = {0};
+        if (alpha_yylex((void *)&return_token) < 0)
+            break;
+
+        if (LinkedList_AddToEnd(&token_list, return_token) <= 0)
             return -1;
+    }
 
     LinkedList_Print(token_list, output_file);
     printf("[LEXER] Reached end of file at line %d\n", yylineno);
     printf("[LEXER] Lexical analysis identified %d tokens.\n", tokenNumber);
+
+    LinkedList_CheckErrors(token_list); // Do not check for < 0 return and exit cause the program already is at the end.
+    LinkedList_Free(&token_list);
 
     close_files();
     return 0;
