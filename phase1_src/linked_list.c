@@ -131,15 +131,15 @@ void LinkedList_Print(const List *list, FILE *out)
         fprintf(out, "%-8d #%-9d \"%-33s\"",
                 cur->lineNumber, cur->tokenNumber, cur->lexeme);
 
-        if (cur->mainCat == UNIDENTIFIED)
+        if (cur->mainCat == UNIDENTIFIED_)
         {
             fprintf(out, "  %-18s %-25s\n", "UNIDENTIFIED", "NO_SUB_CATEGORY");
             continue;
         }
-        if (cur->secondaryCat == NO_SUB_CATEGORY)
+        if (cur->secondaryCat == NO_SUB_CATEGORY_)
         {
             /* INTCONST / REALCONST / IDENT / STRING */
-            if (cur->mainCat == IDENTIFIER || cur->mainCat == STRING)
+            if (cur->mainCat == IDENTIFIER_ || cur->mainCat == STRING_)
             {
                 fprintf(out, "  %-18s \"%-23s\" <--%s\n",
                         CategoryToString(cur->mainCat),
@@ -173,7 +173,7 @@ int LinkedList_CheckErrors(const List *list){
 
     bool found = false;
     for (Token *cur = list->head; cur; cur = cur->next) {
-        if (cur->mainCat == UNIDENTIFIED) {
+        if (cur->mainCat == UNIDENTIFIED_) {
             fprintf(output_file,
                     "[LEXICAL ERROR] Undefined token '%s' at line %d\n",
                     cur->lexeme, cur->lineNumber);

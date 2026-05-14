@@ -38,12 +38,12 @@ const char *typeHint(TokenCategory cat)
 {
     switch (cat)
     {
-    case STRING:
-    case IDENTIFIER:
+    case STRING_:
+    case IDENTIFIER_:
         return "char*";
-    case INTCONST:
+    case INTCONST_:
         return "int";
-    case REALCONST:
+    case REALCONST_:
         return "float";
     default:
         return "enumerator";

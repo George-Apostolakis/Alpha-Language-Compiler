@@ -70,55 +70,55 @@ REAL    [0-9]+\.[0-9]+
 
 %%
 
-"if"        { EMIT(KEYWORD, IF,       IF);       }
-"else"      { EMIT(KEYWORD, ELSE,     ELSE);     }
-"while"     { EMIT(KEYWORD, WHILE,    WHILE);    }
-"for"       { EMIT(KEYWORD, FOR,      FOR);      }
-"function"  { EMIT(KEYWORD, FUNCTION, FUNCTION); }
-"return"    { EMIT(KEYWORD, RETURN,   RETURN);   }
-"break"     { EMIT(KEYWORD, BREAK,    BREAK);    }
-"continue"  { EMIT(KEYWORD, CONTINUE, CONTINUE); }
-"and"       { EMIT(KEYWORD, AND,      AND);      }
-"not"       { EMIT(KEYWORD, NOT,      NOT);      }
-"or"        { EMIT(KEYWORD, OR,       OR);       }
-"local"     { EMIT(KEYWORD, LOCAL,    LOCAL);    }
-"true"      { EMIT(KEYWORD, TRUE,     TRUE);     }
-"false"     { EMIT(KEYWORD, FALSE,    FALSE);    }
-"nil"       { EMIT(KEYWORD, NIL,      NIL);      }
+"if"        { EMIT(KEYWORD_, IF_,       IF_);       }
+"else"      { EMIT(KEYWORD_, ELSE_,     ELSE_);     }
+"while"     { EMIT(KEYWORD_, WHILE_,    WHILE_);    }
+"for"       { EMIT(KEYWORD_, FOR_,      FOR_);      }
+"function"  { EMIT(KEYWORD_, FUNCTION_, FUNCTION_); }
+"return"    { EMIT(KEYWORD_, RETURN_,   RETURN_);   }
+"break"     { EMIT(KEYWORD_, BREAK_,    BREAK_);    }
+"continue"  { EMIT(KEYWORD_, CONTINUE_, CONTINUE_); }
+"and"       { EMIT(KEYWORD_, AND_,      AND_);      }
+"not"       { EMIT(KEYWORD_, NOT_,      NOT_);      }
+"or"        { EMIT(KEYWORD_, OR_,       OR_);       }
+"local"     { EMIT(KEYWORD_, LOCAL_,    LOCAL_);    }
+"true"      { EMIT(KEYWORD_, TRUE_,     TRUE_);     }
+"false"     { EMIT(KEYWORD_, FALSE_,    FALSE_);    }
+"nil"       { EMIT(KEYWORD_, NIL_,      NIL_);      }
 
 
-"=="        { EMIT(OPERATOR, EQUAL,         EQUAL);         }
-"!="        { EMIT(OPERATOR, NOT_EQUAL,     NOT_EQUAL);     }
-">="        { EMIT(OPERATOR, GREATER_EQUAL, GREATER_EQUAL); }
-"<="        { EMIT(OPERATOR, LESS_EQUAL,    LESS_EQUAL);    }
-"++"        { EMIT(OPERATOR, INCREMENT,     INCREMENT);     }
-"--"        { EMIT(OPERATOR, DECREMENT,     DECREMENT);     }
-"="         { EMIT(OPERATOR, ASSIGN,        ASSIGN);        }
-"+"         { EMIT(OPERATOR, PLUS,          PLUS);          }
-"-"         { EMIT(OPERATOR, MINUS,         MINUS);         }
-"*"         { EMIT(OPERATOR, MULTIPLY,      MULTIPLY);      }
-"/"         { EMIT(OPERATOR, DIVIDE,        DIVIDE);        }
-"%"         { EMIT(OPERATOR, MODULUS,       MODULUS);       }
-">"         { EMIT(OPERATOR, GREATER_THAN,  GREATER_THAN);  }
-"<"         { EMIT(OPERATOR, LESS_THAN,     LESS_THAN);     }
+"=="        { EMIT(OPERATOR_, EQUAL_,         EQUAL_);         }
+"!="        { EMIT(OPERATOR_, NOT_EQUAL_,     NOT_EQUAL_);     }
+">="        { EMIT(OPERATOR_, GREATER_EQUAL_, GREATER_EQUAL_); }
+"<="        { EMIT(OPERATOR_, LESS_EQUAL_,    LESS_EQUAL_);    }
+"++"        { EMIT(OPERATOR_, INCREMENT_,     INCREMENT_);     }
+"--"        { EMIT(OPERATOR_, DECREMENT_,     DECREMENT_);     }
+"="         { EMIT(OPERATOR_, ASSIGN_,        ASSIGN_);        }
+"+"         { EMIT(OPERATOR_, PLUS_,          PLUS_);          }
+"-"         { EMIT(OPERATOR_, MINUS_,         MINUS_);         }
+"*"         { EMIT(OPERATOR_, MULTIPLY_,      MULTIPLY_);      }
+"/"         { EMIT(OPERATOR_, DIVIDE_,        DIVIDE_);        }
+"%"         { EMIT(OPERATOR_, MODULUS_,       MODULUS_);       }
+">"         { EMIT(OPERATOR_, GREATER_THAN_,  GREATER_THAN_);  }
+"<"         { EMIT(OPERATOR_, LESS_THAN_,     LESS_THAN_);     }
 
 
-"{"         { EMIT(PUNCTUATION, LEFT_BRACE,             LEFT_BRACE);             }
-"}"         { EMIT(PUNCTUATION, RIGHT_BRACE,            RIGHT_BRACE);            }
-"["         { EMIT(PUNCTUATION, LEFT_SQUARE_BRACKET,    LEFT_SQUARE_BRACKET);    }
-"]"         { EMIT(PUNCTUATION, RIGHT_SQUARE_BRACKET,   RIGHT_SQUARE_BRACKET);   }
-"("         { EMIT(PUNCTUATION, LEFT_PARENTHESIS,       LEFT_PARENTHESIS);       }
-")"         { EMIT(PUNCTUATION, RIGHT_PARENTHESIS,      RIGHT_PARENTHESIS);      }
-"::"        { EMIT(PUNCTUATION, DOUBLE_COLON,           DOUBLE_COLON);           }
-":"         { EMIT(PUNCTUATION, COLON,                  COLON);                  }
-".."        { EMIT(PUNCTUATION, DOUBLE_DOT,             DOUBLE_DOT);             }
-"."         { EMIT(PUNCTUATION, DOT,                    DOT);                    }
-";"         { EMIT(PUNCTUATION, SEMICOLON,              SEMICOLON);              }
-","         { EMIT(PUNCTUATION, COMMA,                  COMMA);                  }
+"{"         { EMIT(PUNCTUATION_, LEFT_BRACE_,             LEFT_BRACE_);             }
+"}"         { EMIT(PUNCTUATION_, RIGHT_BRACE_,            RIGHT_BRACE_);            }
+"["         { EMIT(PUNCTUATION_, LEFT_SQUARE_BRACKET_,    LEFT_SQUARE_BRACKET_);    }
+"]"         { EMIT(PUNCTUATION_, RIGHT_SQUARE_BRACKET_,   RIGHT_SQUARE_BRACKET_);   }
+"("         { EMIT(PUNCTUATION_, LEFT_PARENTHESIS_,       LEFT_PARENTHESIS_);       }
+")"         { EMIT(PUNCTUATION_, RIGHT_PARENTHESIS_,      RIGHT_PARENTHESIS_);      }
+"::"        { EMIT(PUNCTUATION_, DOUBLE_COLON_,           DOUBLE_COLON_);           }
+":"         { EMIT(PUNCTUATION_, COLON_,                  COLON_);                  }
+".."        { EMIT(PUNCTUATION_, DOUBLE_DOT_,             DOUBLE_DOT_);             }
+"."         { EMIT(PUNCTUATION_, DOT_,                    DOT_);                    }
+";"         { EMIT(PUNCTUATION_, SEMICOLON_,              SEMICOLON_);              }
+","         { EMIT(PUNCTUATION_, COMMA_,                  COMMA_);                  }
 
-{DIGIT}+    { EMIT(INTCONST,    NO_SUB_CATEGORY,        INTCONST);      }
-{REAL}      { EMIT(REALCONST,   NO_SUB_CATEGORY,        REALCONST);     }
-{ID}        { EMIT(IDENTIFIER,  NO_SUB_CATEGORY,        IDENTIFIER);    }
+{DIGIT}+    { EMIT(INTCONST_,    NO_SUB_CATEGORY_,        INTCONST_);      }
+{REAL}      { EMIT(REALCONST_,   NO_SUB_CATEGORY_,        REALCONST_);     }
+{ID}        { EMIT(IDENTIFIER_,  NO_SUB_CATEGORY_,        IDENTIFIER_);    }
 
 \"          {
                 string_starting_line = yylineno;
@@ -136,11 +136,11 @@ REAL    [0-9]+\.[0-9]+
 <STRING_STATE>{
     \"      {
                 string_ptr[string_index] = '\0';
-                emit(yylval, string_starting_line, string_ptr, STRING, NO_SUB_CATEGORY, STRING);
+                emit(yylval, string_starting_line, string_ptr, STRING_, NO_SUB_CATEGORY_, STRING_);
                 free(string_ptr);
                 string_ptr = NULL;
                 BEGIN(INITIAL);
-                return STRING;
+                return STRING_;
             }
 
     /* Recognised escape sequences */
@@ -164,21 +164,21 @@ REAL    [0-9]+\.[0-9]+
 
                 BEGIN(INITIAL);
 
-                return emit(yylval, string_starting_line, NULL, UNIDENTIFIED, NO_SUB_CATEGORY, UNIDENTIFIED);
+                return emit(yylval, string_starting_line, NULL, UNIDENTIFIED_, NO_SUB_CATEGORY_, UNIDENTIFIED_);
             }       
 
     <<EOF>> {
                 free(string_ptr);
  
                 BEGIN(INITIAL);
-                return emit(yylval, string_starting_line, NULL, UNIDENTIFIED, NO_SUB_CATEGORY, UNIDENTIFIED);
+                return emit(yylval, string_starting_line, NULL, UNIDENTIFIED_, NO_SUB_CATEGORY_, UNIDENTIFIED_);
             }
 
     /* Any other character */
     .|\n  { growStringBuffer(); string_ptr[string_index++] = yytext[0]; }
 }
 
-"//".*      { return emit(yylval, yylineno, "", COMMENT, LINE_COMMENT, COMMENT);}
+"//".*      { return emit(yylval, yylineno, "", COMMENT_, LINE_COMMENT_, COMMENT_);}
 
 "/*"        {
                 block_comment_is_nested = false;
@@ -196,7 +196,7 @@ REAL    [0-9]+\.[0-9]+
     "*/"    {
                 if((--block_comment_depth) == 0){
                     BEGIN(INITIAL);
-                    return emit(yylval, block_comment_starting_line, "", COMMENT, (block_comment_is_nested)?NESTED_COMMENT:BLOCK_COMMENT, COMMENT);
+                    return emit(yylval, block_comment_starting_line, "", COMMENT_, (block_comment_is_nested)?NESTED_COMMENT_:BLOCK_COMMENT_, COMMENT_);
                 }
             }
 
@@ -204,13 +204,13 @@ REAL    [0-9]+\.[0-9]+
 
     <<EOF>> { 
                 BEGIN(INITIAL);
-                return emit(yylval, block_comment_starting_line, "", UNIDENTIFIED, NO_SUB_CATEGORY,UNIDENTIFIED);
+                return emit(yylval, block_comment_starting_line, "", UNIDENTIFIED_, NO_SUB_CATEGORY_,UNIDENTIFIED_);
             }
 }
 [ \t\n\r\f\v]+      { /* IGNORE */}
 
 <INITIAL><<EOF>>    { return -1; }
 
-.           { EMIT(UNIDENTIFIED,NO_SUB_CATEGORY        ,UNIDENTIFIED);}
+.           { EMIT(UNIDENTIFIED_,NO_SUB_CATEGORY_        ,UNIDENTIFIED_);}
 
 %%
